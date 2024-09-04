@@ -20,7 +20,9 @@ export default function Main() {
       <UserMenu>
         <div className="w-screen h-screen overflow-hidden bg-sidebar flex">
           {!isMobile && <Sidebar />}
-          <DefaultChatContainer />
+          <div className="flex w-screen h-full flex-col items-center justify-center">
+            <h1 className="text-4xl font-bold text-white">Welcome to Athena.</h1>
+          </div>
         </div>
       </UserMenu>
       <FineTuningAlert />

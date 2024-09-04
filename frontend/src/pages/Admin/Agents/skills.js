@@ -70,4 +70,12 @@ export const configurableSkills = {
     component: AgentSQLConnectorSelection,
     skill: "sql-agent",
   },
+  "laserfocus-api": {
+    title: "Laserfocus API",
+    description: "Allow the agent to access the Laserfocus API to perform various operations.",
+    component: GenericSkillPanel,
+    skill: "laserfocus-api",
+    icon: FileMagnifyingGlass,
+    image: GenerateSaveImages,
+  },
 };

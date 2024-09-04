@@ -161,6 +161,8 @@ export default function ChatContainer({ workspace, knownHistory = [] }) {
         return;
       }
 
+      console.log('LLM Event!', promptMessage)
+
       if (!promptMessage || !promptMessage?.userMessage) return false;
 
       // If running and edit or regeneration, this history will already have attachments
@@ -205,6 +207,7 @@ export default function ChatContainer({ workspace, knownHistory = [] }) {
         socket.addEventListener("message", (event) => {
           setLoadingResponse(true);
           try {
+            console.log('Agent event!', event)
             handleSocketResponse(event, setChatHistory);
           } catch (e) {
             console.error("Failed to parse data");
