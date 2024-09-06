@@ -90,6 +90,7 @@ export function AvailableAgents({
                   <AbilityTag text="list-documents" />
                   <AbilityTag text="summarize-document" />
                   <AbilityTag text="chart-generation" />
+                  <AbilityTag text="laserfocus-api" />
                 </div>
               </div>
             </button>

@@ -25,6 +25,7 @@ function chatEndpoints(app) {
     "/workspace/:slug/stream-chat",
     [validatedRequest, flexUserRoleValid([ROLES.all]), validWorkspaceSlug],
     async (request, response) => {
+      console.log(request)
       try {
         const user = await userFromSession(request, response);
         const { message, attachments = [] } = reqBody(request);
@@ -133,6 +134,7 @@ function chatEndpoints(app) {
       validWorkspaceAndThreadSlug,
     ],
     async (request, response) => {
+      console.log(request)
       try {
         const user = await userFromSession(request, response);
         const { message, attachments = [] } = reqBody(request);

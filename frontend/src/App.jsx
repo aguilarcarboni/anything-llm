@@ -19,6 +19,7 @@ import { FullScreenLoader } from "./components/Preloader";
 const Main = lazy(() => import("@/pages/Main"));
 const InvitePage = lazy(() => import("@/pages/Invite"));
 const WorkspaceChat = lazy(() => import("@/pages/WorkspaceChat"));
+const WorkspaceCall = lazy(() => import("@/pages/WorkspaceCall"));
 const AdminUsers = lazy(() => import("@/pages/Admin/Users"));
 const AdminInvites = lazy(() => import("@/pages/Admin/Invitations"));
 const AdminWorkspaces = lazy(() => import("@/pages/Admin/Workspaces"));
@@ -85,6 +86,10 @@ export default function App() {
                 <Route
                   path="/workspace/:slug"
                   element={<PrivateRoute Component={WorkspaceChat} />}
+                />
+                <Route
+                  path="/workspace/:slug/call"
+                  element={<PrivateRoute Component={WorkspaceCall} />}
                 />
                 <Route
                   path="/workspace/:slug/t/:threadSlug"
