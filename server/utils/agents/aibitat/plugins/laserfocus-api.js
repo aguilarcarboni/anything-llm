@@ -15,11 +15,23 @@ const laserfocusApi = {
           name: this.name,
           controller: new AbortController(),
           description:
-            "Interacts with the laserfocus-api.onrender.com API, supporting both GET and POST requests.",
+            "Interacts with the Laserfocus API, supporting both GET and POST requests. Always use Laserfocus API schema and context to figure out the correct endpoint, method and parameters.",
           examples: [
             {
               prompt: "Get user with name Andres from database",
-              call: JSON.stringify({ endpoint: "/database/query", method: "POST", params: { database: "users", table: "user", query: {name: 'Andres'} }}),
+              call: JSON.stringify({ endpoint: "/database/read", method: "POST", params: { table: "user", query: {name: 'Andres'} }}),
+            },
+            {
+              prompt: "Get the current weather",
+              call: JSON.stringify({ endpoint: "/weather", method: "GET", params: {}}),
+            },
+            {
+              prompt: "Get the current date and time",
+              call: JSON.stringify({ endpoint: "/", method: "GET", params: {}}),
+            },
+            {
+              prompt: "Test connection to Laserfocus API",
+              call: JSON.stringify({ endpoint: "/", method: "GET", params: {} }),
             },
           ],
           parameters: {
@@ -28,7 +40,7 @@ const laserfocusApi = {
             properties: {
               endpoint: {
                 type: "string",
-                description: "The API endpoint to call (e.g., '/database/query')",
+                description: "The API endpoint to call",
               },
               method: {
                 type: "string",
@@ -56,7 +68,7 @@ const laserfocusApi = {
               `${this.caller}: Making a ${method} request to ${endpoint}`
             );
 
-            const baseUrl = 'https://laserfocus-api.onrender.com';
+            const baseUrl = 'http://192.168.0.104:5002';
             const url = `${baseUrl}${endpoint}`;
 
             console.log(method, endpoint, params);

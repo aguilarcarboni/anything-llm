@@ -8,6 +8,7 @@ const { memory } = require("./memory.js");
 const { rechart } = require("./rechart.js");
 const { sqlAgent } = require("./sql-agent/index.js");
 const { laserfocusApi } = require("./laserfocus-api.js");
+const { uiComponentGenerator } = require("./ui-component-generator.js");
 
 module.exports = {
   webScraping,
@@ -20,6 +21,7 @@ module.exports = {
   rechart,
   sqlAgent,
   laserfocusApi,
+  uiComponentGenerator,
 
   // Plugin name aliases so they can be pulled by slug as well.
   [webScraping.name]: webScraping,
@@ -32,4 +34,5 @@ module.exports = {
   [rechart.name]: rechart,
   [sqlAgent.name]: sqlAgent,
   [laserfocusApi.name]: laserfocusApi,
+  [uiComponentGenerator.name]: uiComponentGenerator,
 };
